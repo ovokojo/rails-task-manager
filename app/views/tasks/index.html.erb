@@ -1,4 +1,19 @@
-<p>hello world</p>
-<% @tasks.each do |task| %>
-  <p><%= task.title %></p>
-<% end %>
+<h1>MY TASKS</h1>
+<ul>
+  <% @tasks.each do |task| %>
+    <li>
+      <h2><%= link_to task.title, task_path(task) %></h2>
+    </li>
+    <li>
+      <%= task.details %>
+    </li>
+    <li>
+      <%= task.completed ? "complete" : "incomplete" %>
+    </li>
+    <br>
+  <% end %>
+
+  <li>
+    <%= link_to "Add new task", new_task_path %>
+  </li>
+</ul>
